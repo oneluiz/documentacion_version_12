@@ -63,6 +63,7 @@ cd $PATHBASE
 sudo git clone https://github.com/odoo/odoo.git -b $VERSION --depth $DEPTH $PATHBASE/odoo
 sudo git clone https://github.com/odooerpdevelopers/backend_theme.git -b $VERSION --depth $DEPTH $PATHREPOS/backend_theme
 sudo git clone https://github.com/oca/web.git -b $VERSION --depth $DEPTH $PATHREPOS_OCA/web
+sudo git clone https://github.com/odoocr/l10n_cr.git -b $VERSION --depth $DEPTH $PATHREPOS
 
 
 # Install python3 and dependencies for Odoo
@@ -127,6 +128,7 @@ addons_path =
     $PATHREPOS,
     $PATHREPOS/backend_theme,
     $PATHREPOS_OCA/web,
+    $PATHREPOS/l10n_cr,
     $PATHBASE/odoo/addons
 
 #################################################################
@@ -165,6 +167,8 @@ sudo systemctl enable odoo$VCODE.service
 sudo systemctl start odoo$VCODE
 
 sudo chown -R $usuario: $PATHBASE
+
+sudo pip3 install -r /opt/odoo12/extra-addons/l10n_cr/requirements.txt
 
 echo "Odoo $VERSION Installation has finished!! ;) by crfactura.com"
 IP=$(ip route get 8.8.8.8 | head -1 | cut -d' ' -f7)
