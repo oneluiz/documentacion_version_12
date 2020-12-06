@@ -43,6 +43,7 @@ sudo adduser --system --quiet --shell=/bin/bash --home=$PATHBASE --gecos 'ODOO' 
 sudo adduser $usuario sudo
 
 # add universe repository & update (Fix error download libraries)
+sudo apt-get install software-properties-common
 sudo add-apt-repository universe
 sudo apt-get update
 sudo apt-get upgrade
