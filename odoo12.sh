@@ -63,8 +63,9 @@ cd $PATHBASE
 sudo git clone https://github.com/odoo/odoo.git -b $VERSION --depth $DEPTH $PATHBASE/odoo
 sudo git clone https://github.com/odooerpdevelopers/backend_theme.git -b $VERSION --depth $DEPTH $PATHREPOS/backend_theme
 sudo git clone https://github.com/oca/web.git -b $VERSION --depth $DEPTH $PATHREPOS_OCA/web
-sudo git clone https://github.com/odoocr/l10n_cr.git -b $VERSION --depth $DEPTH $PATHREPOS
-
+cd $PATHREPOS
+sudo git clone --branch 12.0 --depth 1 --single-branch https://github.com/odoocr/l10n_cr.git
+cd $PATHBASE
 
 # Install python3 and dependencies for Odoo
 sudo apt-get -y install gcc python3-dev libxml2-dev libxslt1-dev \
